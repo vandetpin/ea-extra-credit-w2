@@ -36,7 +36,7 @@ public class Task {
 
 	public Task(){}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -56,7 +56,7 @@ public class Task {
 		return volunteer;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

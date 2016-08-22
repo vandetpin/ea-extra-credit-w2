@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-
 @Entity
 public class Project {
 	@Id @GeneratedValue
@@ -47,11 +45,11 @@ public class Project {
 	
 	public Project(){}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
