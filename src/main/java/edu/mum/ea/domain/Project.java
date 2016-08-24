@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -32,13 +33,13 @@ public class Project {
 	@Temporal(TemporalType.DATE)
 	private Date expectedEndDate;
 	
-	@OneToMany(mappedBy="project"/*, cascade={CascadeType.ALL}*/)
+	@OneToMany(mappedBy="project", cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<Task> tasks = new ArrayList<Task>();
 	
-	@OneToMany(/*cascade={CascadeType.ALL}*/)
+	@OneToMany(fetch=FetchType.EAGER, cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
 	
-	@ManyToOne(/*cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}*/)
+	@ManyToOne(cascade={CascadeType.MERGE})
 	private User administrator;
 	
 	@Enumerated

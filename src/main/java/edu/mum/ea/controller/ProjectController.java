@@ -63,26 +63,26 @@ public class ProjectController {
 		LOG.info(">>>>>>>>>> calling add project >>>>>>>>>>>>>>>>>");
 		//processing data
 		
-		if(project.getTasks() != null) {
-			List<Task> saveTasks = new ArrayList<Task>();
-			
-			//save resource
-			for(Task task : project.getTasks()) {
-				if(!CollectionUtils.isEmpty(task.getResources())) {
-					Iterable<Resource> resources = resourceService.addNew(task.getResources());
-					task.setResources(Helper.makeList(resources));
-				}
-				
-				// save task
-				saveTasks.add(taskService.addNewOrUpdate(task));
-			}
-			
-			// add save task to project
-			for(Task task : saveTasks) {
-				project.addTask(task);
-			}
-			
-		}
+//		if(project.getTasks() != null) {
+//			List<Task> saveTasks = new ArrayList<Task>();
+//			
+//			//save resource
+//			for(Task task : project.getTasks()) {
+//				if(!CollectionUtils.isEmpty(task.getResources())) {
+//					Iterable<Resource> resources = resourceService.addNew(task.getResources());
+//					task.setResources(Helper.makeList(resources));
+//				}
+//				
+//				// save task
+//				saveTasks.add(taskService.addNewOrUpdate(task));
+//			}
+//			
+//			// add save task to project
+//			for(Task task : saveTasks) {
+//				project.addTask(task);
+//			}
+//			
+//		}
 		
 		//save project
 		projectService.addNew(project);

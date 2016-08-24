@@ -49,4 +49,9 @@ public class ProjectServiceImpl implements ProjectService {
 	public Iterable<Project> findAll() {
 		return projectDAO.findAll();
 	}
+
+	@Override
+	public Iterable<Project> newOrUpdate(Iterable<Project> projects) {
+		return projectDAO.save(projects);
+	}
 }
