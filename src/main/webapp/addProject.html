@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>New Project</title>
+</head>
+<body>
+	<h1>Add new project</h1>
+	<form>
+	<table>
+		<tr>
+			<td>Image url:</td>
+			<td><input type="text" name="imageUrl" id="imageUrl" value="https://learnenglishkids.britishcouncil.org/sites/kids/files/RS1087_Ride%20a%20bike%20col-web.jpg" /> </td>
+		</tr>
+		<tr>
+			<td>Description:</td>
+			<td><textarea rows="5" cols="100" name="description" id="description" >Bike project</textarea> </td>
+		</tr>
+		<tr>
+			<td>Status:</td>
+			<td><select name="status" id="status">
+				<option>DONE</option><option>INPROGRESS</option><option>PENDDING</option><option>NEW</option>
+			</select> </td>
+		</tr>
+		<tr>
+			<td>Expected start date</td>
+			<td><input type="text" name="expectedStartDate" id="expectedStartDate" value="2019-10-10" /> </td>
+		</tr>
+		<tr>
+			<td>Expected end date</td>
+			<td><input type="text" name="expectedEndDate" id="expectedEndDate" value="2020-10-10" /> </td>
+		</tr>
+		<tr>
+			<td>Location</td>
+			<td><input type="text" id="location" value="Cambodia" /></td>
+		</tr>
+	</table>
+	<h3>Assigned task</h3>
+	<h4>Task 1</h4>
+	<hr width="100%">
+	<table id="task-list">
+		<tr>
+			<td>Description:</td>
+			<td><input type="text" id="task-1-description" value="Aalnysis" /> </td>
+		</tr>
+		<tr>
+			<td>Time frame(day):</td>
+			<td><input type="text" id="task-1-timeFrame" value="160" /></td>
+		</tr>
+		<tr><td>Status:</td>
+			<td><select id="task-1-status">
+				<option>DONE</option><option>INPROGRESS</option><option>PENDDING</option><option>NEW</option>
+			</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>Require resources(split by comma ","):</td>
+			<td><input type="text" id="task-1-resource" placeholder="Software Engineer, Driver"  value="Software Engineer, Driver, English Teacher" /></td>
+		</tr>
+		<tr>
+			<td>Beneficiary(split by comma ","):</td>
+			<td><input type="text" id="task-1-beneficiary" placeholder="" /></td>
+		</tr>
+	</table>
+	<h4>Task 2</h4>
+	<hr width="100%">
+	<table id="task-list">
+		<tr>
+			<td>Description:</td>
+			<td><input type="text" id="task-2-description" value="Tranning how to ride bike to the child" /> </td>
+		</tr>
+		<tr>
+			<td>Time frame(day):</td>
+			<td><input type="text" id="task-2-timeFrame" value="365" /></td>
+		</tr>
+		<tr><td>Status:</td>
+			<td><select name="task-2-status">
+				<option>DONE</option><option>INPROGRESS</option><option>PENDDING</option><option>NEW</option>
+			</select> 
+			</td>
+		</tr>
+		<tr>
+			<td>Require resources(split by comma ","):</td>
+			<td><input type="text" id="task-2-resource" placeholder="Software Engineer, Driver" value="Software Engineer, Driver, English Teacher" /></td>
+		</tr>
+		<tr>
+			<td>Beneficiary(split by comma ","):</td>
+			<td><input type="text" id="task-2-beneficiary" placeholder="" /></td>
+		</tr>
+	</table>
+	
+	<input type="submit"/>
+	
+	</form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="js/add-project.js"></script>
+</html>

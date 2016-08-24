@@ -3,6 +3,7 @@ package edu.mum.ea.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -19,7 +20,7 @@ public class Task {
 	
 	private String description;
 	
-	@OneToMany
+	@OneToMany(/*cascade={CascadeType.ALL}*/)
 	@JoinColumn(name="resourceId")
 	private List<Resource> resources=new ArrayList<Resource>();
 	

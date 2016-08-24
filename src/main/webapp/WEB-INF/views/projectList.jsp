@@ -15,11 +15,14 @@
 		<td>#${i.index + 1}</td>
 		<td><img width="100" height="auto"  src="${project.imageUrl}" /></td>
 		<td>${project.description}</td>
-		<td><a href="projects/${project.id}">edit</a></td>
+		<td><button type="button" onclick="onRemove(${project.id})">Remove</button></td>
+		<td><a href="projects/${project.id}"><button type="button">Edit</button></a></td>
 	</tr>
 	</c:forEach>
 	</table>
 	
 	<a href="addProject.html"> Add a Project</a>
 </body>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+<script src="js/project-detail.js"></script>
 </html>

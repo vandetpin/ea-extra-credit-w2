@@ -90,11 +90,18 @@
 		 <version>5.1.33</version>
 	  </dependency>	  	 
 
+	 <!-- helper function -->	
 	  <dependency>
 	  	<groupId>commons-io</groupId>
 		<artifactId>commons-io</artifactId>
 		<version>2.4</version>
-	  </dependency>		  
+	  </dependency>
+	<dependency>
+	    <groupId>commons-collections</groupId>
+	    <artifactId>commons-collections</artifactId>
+	    <version>3.2.2</version>
+	</dependency>
+	  		  
 	  
 	  <!-- HttpServletRequest or HttpServletResponse -->
 	  <dependency>

@@ -1,11 +1,10 @@
-package edu.mum.ea.domain;
+package edu.mum.ea.json;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -15,38 +14,39 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-public class Project {
-	@Id @GeneratedValue
+import edu.mum.ea.domain.Beneficiary;
+import edu.mum.ea.domain.Status;
+import edu.mum.ea.domain.Task;
+import edu.mum.ea.domain.User;
+
+@JsonIgnoreProperties
+public class JProject {
 	private Integer id;
 	
 	private String description;
 	
 	private String imageUrl;
 	
-	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date expectedStartDate;
 	
-	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date expectedEndDate;
 	
-	@OneToMany(mappedBy="project"/*, cascade={CascadeType.ALL}*/)
-	private List<Task> tasks = new ArrayList<Task>();
+	private ArrayList<Task> tasks;
 	
-	@OneToMany(/*cascade={CascadeType.ALL}*/)
-	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
+	private ArrayList<Beneficiary> beneficiaries;
 	
-	@ManyToOne(/*cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}*/)
 	private User administrator;
 	
-	@Enumerated
 	private Status status;
 	
 	private String location;
 	
-	public Project(){}
+	public JProject(){}
 
 	public Integer getId() {
 		return id;
@@ -62,6 +62,14 @@ public class Project {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public Date getExpectedStartDate() {
@@ -80,32 +88,20 @@ public class Project {
 		this.expectedEndDate = expectedEndDate;
 	}
 
-	public List<Task> getTasks() {
-		return Collections.unmodifiableList(tasks);
+	public ArrayList<Task> getTasks() {
+		return tasks;
 	}
 
-	public void addTask(Task task) {
-		tasks.add(task);
-		task.setProject(this);
-	}
-	
-	public void removeTask(Task task) {
-		task.setProject(null);
-		tasks.remove(task);
-	}
-	
-	public List<Beneficiary> getBeneficiaries() {
-		return Collections.unmodifiableList(beneficiaries);
+	public void setTasks(ArrayList<Task> tasks) {
+		this.tasks = tasks;
 	}
 
-	public void addBeneficiary(Beneficiary beneficiary) {
-		beneficiaries.add(beneficiary);
-		beneficiary.setProject(this);
+	public ArrayList<Beneficiary> getBeneficiaries() {
+		return beneficiaries;
 	}
-	
-	public void removeBeneficiary(Beneficiary beneficiary) {
-		beneficiary.setProject(null);
-		beneficiaries.remove(beneficiary);
+
+	public void setBeneficiaries(ArrayList<Beneficiary> beneficiaries) {
+		this.beneficiaries = beneficiaries;
 	}
 
 	public User getAdministrator() {
@@ -132,12 +128,4 @@ public class Project {
 		this.location = location;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-	
 }
